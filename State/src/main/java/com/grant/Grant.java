@@ -18,25 +18,6 @@ public class Grant {
         this.gruntState = gruntState;
     }
 
-    public void nextState(){
-        if(gruntState instanceof Confirmed || gruntState instanceof  Recalled){
-            return;
-        }
-        if(gruntState instanceof Created){
-            this.setGruntState(new Considered());
-        }
-        else if(gruntState instanceof Considered){
-            this.setGruntState(new Delay());
-        }
-        else {
-            if (new Random().nextInt(5) == 3) {
-                this.setGruntState(new Confirmed());
-            } else {
-                this.setGruntState(new Recalled());
-            }
-        }
-    }
-
     public String getGruntName() {
         return gruntName;
     }
